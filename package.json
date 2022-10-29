@@ -1,17 +1,17 @@
 {
   "name": "completion-array",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "creates list of switches and invoke callback after all switches get switched",
   "main": "./dist/cjs/index.js",
   "types": "./dist/types/index.d.ts",
-  "module": "./dist/esm/index.js",
+  "module": "./dist/esm/index.mjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/ynoplanetashka2/completion-array.git"
   },
   "export": {
     ".": {
-      "import": "./dist/esm/index.js",
+      "import": "./dist/esm/index.mjs",
       "require": "./dist/cjs/index.js",
       "types": "./dist/types/index.d.ts"
     }
@@ -21,7 +21,7 @@
     "test-watch": "npm run test -- --watch",
     "build": "npm-run-all -p build:*",
     "build:cjs": "tsc -p ./tsconfig.cjs.json",
-    "build:esm": "tsc -p ./tsconfig.esm.json",
+    "build:esm": "node ./tools/build-esm.js",
     "build:types": "tsc -p ./tsconfig.types.json",
     "build-watch": "npm run build -- --watch",
     "clear": "del-cli ./dist"
