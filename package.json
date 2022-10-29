@@ -19,15 +19,16 @@
   "scripts": {
     "test": "jest .",
     "test-watch": "npm run test -- --watch",
-    "build": "npm-run-all -p build:*",
     "build:cjs": "tsc -p ./tsconfig.cjs.json",
     "build:esm": "tsc -p ./tsconfig.esm.json",
     "build:types": "tsc -p ./tsconfig.types.json",
+    "build": "npm-run-all -p build:*",
     "build-watch:cjs": "npm run build:cjs -- --watch",
     "build-watch:esm": "npm run build:esm -- --watch",
     "build-watch:types": "npm run build:types -- --watch",
     "build-watch": "npm-run-all -p build-watch:*",
-    "clear": "del-cli ./dist"
+    "clear": "del-cli ./dist",
+    "prepublishOnly": "npm-run-all -s test clear build"
   },
   "keywords": [
     "completion",
