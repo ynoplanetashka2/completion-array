@@ -1,14 +1,17 @@
-const { readdirSync, renameSync } = require('fs')
+const { build } = require('esbuild')
 const { resolve } = require('path')
-const { execSync } = require('child_process')
 
 const tsconfigPath = resolve(__dirname, '../tsconfig.esm.json')
 const esmDirectoryPath = resolve(__dirname, '../dist/esm')
-execSync(`npx tsc -p ${tsconfigPath}`)
-console.log('ts build complete')
-const files = readdirSync(esmDirectoryPath)
-for (const basename of files) {
-    const fullName = resolve(esmDirectoryPath, basename)
-    renameSync(fullName, resolve(esmDirectoryPath, `${fullName.slice(0, -3)}.mjs`))
-}
-console.log('files renamed')
+const entryPoint = resolve(__dirname, '../src/index.ts')
+
+const args = process.argv.slice(2)
+build({
+    tsconfig: tsconfigPath,
+    entryPoints: [entryPoint],
+    outdir: esmDirectoryPath,
+    outExtension: { '.js': '.mjs' },
+    bundle: true,
+    format: 'esm',
+    watch: Boolean(args.includes('--watch')),
+})
