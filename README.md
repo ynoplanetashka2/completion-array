@@ -3,7 +3,7 @@
 Creates list of switches and invoke callback after all switches get switched
 ## api
 ```js
-import { createComplitionArray } from 'completion-array';
+import { createCompletionArray } from 'completion-array';
 
 const [complete0, complete1] = createCompletionArray(2, () => console.log('all items completed'));
 
