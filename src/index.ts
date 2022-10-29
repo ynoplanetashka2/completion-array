@@ -1,2 +1,2 @@
-export { createCompletionFn as createCompleteFn } from './createCompletionFn'
+export { createCompletionFn } from './createCompletionFn'
 export { createCompletionArray } from './createCompletionArray'
