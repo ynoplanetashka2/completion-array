@@ -1,6 +1,6 @@
 {
   "name": "completion-array",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "creates list of switches and invoke callback after all switches get switched",
   "main": "./dist/cjs/index.js",
   "types": "./dist/types/index.d.ts",
