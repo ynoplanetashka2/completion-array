@@ -18,7 +18,7 @@ complete1()
 // nothing happend
 ```
 ## use case
-Say your code should keep completion state of list of items, and after all items get complete perform some action. It's exactly the reason behind creation of this package.
+Say your code needs to save completion state of a list of elements, and after all the elements are completed, perform some action. It's exactly the reason behind creation of this package.
 
 ## Author
 email:
