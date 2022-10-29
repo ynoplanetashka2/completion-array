@@ -1,6 +1,5 @@
 # completion-array
 
-## purpose
 Creates list of switches and invoke callback after all switches get switched
 ## api
 ```js
