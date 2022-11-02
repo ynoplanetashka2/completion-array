@@ -18,21 +18,21 @@ describe('createCompletionArray', () => {
 		complete()
 		complete()
 		expect(afterComplete.mock.calls.length).toBe(1)
-        cb()
+		cb()
 	})
 	it('should immediatly call callback if zero items passed', cb => {
 		createCompletionArray(0, cb)
 	})
-    it(`should return empty array if zero items passed`, () => {
-        const arr = createCompletionArray(0, () => {})
-        expect(arr.length).toBe(0)
-    })
+	it(`should return empty array if zero items passed`, () => {
+		const arr = createCompletionArray(0, () => { })
+		expect(arr.length).toBe(0)
+	})
 	it(`should't call callback if some items aren't complete`, cb => {
 		const afterComplete = jest.fn()
 		const [complete0, complete1] = createCompletionArray(2, afterComplete)
 		complete0()
 		expect(afterComplete.mock.calls.length).toBe(0)
-        cb()
+		cb()
 	})
 	it(`should't do anything if some items completed multiple times`, cb => {
 		const afterComplete = jest.fn()
@@ -40,6 +40,6 @@ describe('createCompletionArray', () => {
 		complete0()
 		complete0()
 		expect(afterComplete.mock.calls.length).toBe(0)
-        cb()
+		cb()
 	})
 })

@@ -22,10 +22,10 @@ describe('createCompleteFn', () => {
 	it('should immediatly call callback if zero items passed', cb => {
 		createCompletionFn(0, cb)
 	})
-    it(`should return noOp function if zero items passed`, () => {
-        const complete = createCompletionFn(0, () => {})
-        expect(complete).not.toThrow()
-    })
+	it(`should return noOp function if zero items passed`, () => {
+		const complete = createCompletionFn(0, () => { })
+		expect(complete).not.toThrow()
+	})
 	it(`should't call callback if some items aren't complete`, () => {
 		const afterComplete = jest.fn()
 		const complete = createCompletionFn(2, afterComplete)
